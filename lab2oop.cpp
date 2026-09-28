@@ -36,16 +36,41 @@ void Point::move(int dx, int dy){
     y = y + dy;
 }
 
+class Circle: public Point{
+protected:
+    double radius;
+public:
+    Circle(): Point(){
+        cout << "Circle()" << '\n';
+        radius = 0;
+    }
+    Circle(int x, int y, double radius): Point(x,y){
+        cout << "Circle(int x, int y, double radius)" << '\n';
+        this->x = x;
+        this->y = y;
+        this->radius = radius;
+    }
+    Circle(const Circle *p){
+        cout << "Circle(const Circle *p)" << '\n';
+        this->x = x;
+        this->y = y;
+        this->radius = radius;
+    }
+    ~Circle(){
+        cout << x << " " << y << ' ' << "radius=" << radius <<'\n';
+        cout << "~Circle()" << '\n';
+    }
+    void setRadius(double radius){
+        this->radius = radius;
+    }
+};
+
 
 
 int main()
 {
-    Point *p1 = new Point();
-    p1->setPoint(2,3);
-    p1->move(6,7);
-    //Point *p2 = new Point(6,7);
-    //Point *p3 = new Point(*p2);
+    Circle *p1 = new Circle(1,2,5);
+    p1->setRadius(9);
     delete p1;
-    //delete p2;
-    //delete p3;
+    return 0;
 }
