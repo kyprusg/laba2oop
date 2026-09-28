@@ -65,12 +65,31 @@ public:
     }
 };
 
-
+class Triangle{
+protected:
+    Point *p1;
+    Point *p2;
+    Point *p3;
+public:
+    Triangle(){
+        cout << "Triangle()" << '\n';
+        p1 = new Point;
+        p2 = new Point;
+        p3 = new Point;
+    }
+    Triangle(int x1,int y1, int x2,int y2, int x3, int y3){
+        cout << "Triangle(int x1,int y1, int x2,int y2, int x3, int y3)" << '\n';
+        p1 = new Point(x1,y1);
+        p2 = new Point(x2,y2);
+        p3 = new Point(x3,y3);
+    }
+};
 
 int main()
 {
-    Circle *p1 = new Circle(1,2,5);
-    p1->setRadius(9);
+    Point *p1 = new Circle(1,2,5);
+    Circle *p2 = new Circle(6,7,6);
     delete p1;
+    delete p2;
     return 0;
 }
