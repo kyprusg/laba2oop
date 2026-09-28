@@ -2,7 +2,7 @@
 using namespace std;
 
 class Point {
-private:
+protected:
     int x;
     int y;
 public:
@@ -29,7 +29,12 @@ public:
         this->x = x;
         this->y = y;
     }
+    void move(int dx, int dy);
 };
+void Point::move(int dx, int dy){
+    x = x + dx;
+    y = y + dy;
+}
 
 
 
@@ -37,6 +42,7 @@ int main()
 {
     Point *p1 = new Point();
     p1->setPoint(2,3);
+    p1->move(6,7);
     //Point *p2 = new Point(6,7);
     //Point *p3 = new Point(*p2);
     delete p1;
