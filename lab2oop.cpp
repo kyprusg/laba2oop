@@ -29,7 +29,10 @@ public:
 
 int main()
 {
-    Point p1;
-    Point p2(6,7);
-    Point p3(p2);
+    Point *p1 = new Point();
+    Point *p2 = new Point(6,7);
+    Point *p3 = new Point(*p2);
+    delete p1;
+    delete p2;
+    delete p3;
 }
