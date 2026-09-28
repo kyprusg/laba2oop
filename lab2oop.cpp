@@ -2,9 +2,10 @@
 using namespace std;
 
 class Point {
-public:
+private:
     int x;
     int y;
+public:
     Point() {
         cout << "Point()" << '\n';
         x = 0;
@@ -24,15 +25,21 @@ public:
         cout << x << " " << y << '\n';
         cout << "~Point()" << '\n';
     }
+    void setPoint(int x, int y){
+        this->x = x;
+        this->y = y;
+    }
 };
+
 
 
 int main()
 {
     Point *p1 = new Point();
-    Point *p2 = new Point(6,7);
-    Point *p3 = new Point(*p2);
+    p1->setPoint(2,3);
+    //Point *p2 = new Point(6,7);
+    //Point *p3 = new Point(*p2);
     delete p1;
-    delete p2;
-    delete p3;
+    //delete p2;
+    //delete p3;
 }
